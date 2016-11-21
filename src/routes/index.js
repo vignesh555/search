@@ -1,5 +1,5 @@
 // We only need to import the modules necessary for initial render
-import CoreLayout from '../layouts/CoreLayout/CoreLayout'
+import CoreLayout, { dispatchStore } from '../layouts/CoreLayout/CoreLayout'
 import CounterRoute from './Counter'
 import ResultTile from './ResultTile'
 
@@ -9,6 +9,7 @@ import ResultTile from './ResultTile'
 export const createRoutes = (store) => ({
   path        : '/',
   component   : CoreLayout,
+  onEnter : dispatchStore(store),
   childRoutes : [
     CounterRoute(store),
     ResultTile(store)

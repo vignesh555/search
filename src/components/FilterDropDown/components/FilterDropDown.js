@@ -2,18 +2,16 @@ import React from 'react'
 import './FilterDropDown.scss'
 
 const FilterDropDown = ({ id, className, selected, handleChange, dataList }) => (
-  <div>
-    <select id={id} className={className} value={selected}
-      onChange={handleChange}>
-      {dataList.map(function (data) {
-        return (
-          <option key={data} value={data}>
-            {data}
-          </option>
-        )
-      })}
-    </select>
-  </div>
+  <select id={id} className={className}
+    onChange={handleChange}>
+    {dataList.map(function (data) {
+      return (
+        <option key={data.key} value={data.key}>
+          {data.text}
+        </option>
+      )
+    })}
+  </select>
 )
 
 FilterDropDown.propTypes = {
